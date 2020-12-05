@@ -1,21 +1,30 @@
 import React from 'react';
+import Card from 'react-bootstrap/Card';
+import {Button} from 'react-bootstrap';
+import {Form} from 'react-bootstrap';
 import './AccueilComponent.css';
 
 function Accueil() {
     return(
         <div className='container'>
-            <h1 >Vueillez vous connecter</h1>
-             <form >
-                <div className="form-group">
-                    <label htmlFor="exampleInputEmail1" className="Size">Email</label>
-                    <input type="email" placeholder ="Saisissez votre adresse mail..." className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required pattern="^[^&amp;'<>&quot;()!_$*€£`+=\/;?#]+$"/>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="exampleInputPassword1" >Password</label>
-                    <input type="password" placeholder="Saisissez votre mot de passe..."  className="form-control" id="exampleInputPassword1" required pattern="^[^&amp;'<>&quot;()!_$*€£`+=\/;?#]+$"/>
-                </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
-             </form>
+            <h1 className="mb-4">Vueillez vous connecter</h1>          
+            <Card>                    
+                <Card.Body>  
+                         <Form>
+                            <Form.Group controlId="formBasicEmail">
+                                <Form.Label>Email address</Form.Label>
+                                <Form.Control type="email" placeholder="Enter email" autoComplete="true" required pattern="^[^&amp;'<>&quot;()!_$*€£`+=\/;?#]+$"/>
+                            </Form.Group>
+                            <Form.Group controlId="formBasicPassword">
+                                <Form.Label>Password</Form.Label>
+                                <Form.Control type="password" placeholder="Password" required pattern="^[^&amp;'<>&quot;()!_$*€£`+=\/;?#]+$" />
+                            </Form.Group>
+                            <Button variant="primary" type="submit">
+                                Envoyer
+                            </Button>
+                        </Form>                  
+                </Card.Body>
+            </Card> 
         </div>
     )
     
