@@ -21,11 +21,12 @@
   left:0;
 }
 .container{
-  margin-top:110px;
+  margin-top:95px;
 }
 label{
   margin:0rem auto;
 }
+
 
 
 @media (prefers-reduced-motion: no-preference) {
