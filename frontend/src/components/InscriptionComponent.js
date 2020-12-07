@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import {Button} from 'react-bootstrap';
 import {Form} from 'react-bootstrap';
@@ -60,7 +60,7 @@ function Inscription() {
             <h1 className="mb-1">Inscription</h1>
             <Card>                    
                 <Card.Body>                   
-                    <Form>
+                    <Form onSubmit={HandleSubmit}>
                         <Form.Group controlId="formBasicPrenom" >
                             <Form.Label>Prénom</Form.Label>
                             <Form.Control type="text" autoComplete="true" value={name} onChange={(e)=>setName(e.target.value)} placeholder="Enter prénom" required pattern="^[^&amp;'<>&quot;()!_$*€£`+=\/;?#]+$"/>
@@ -83,7 +83,7 @@ function Inscription() {
                                 <option value='4'>Chargé.e de Communication</option>
                             </Form.Control>
                         </Form.Group>
-                        <Button className="mr-4" onClick={HandleSubmit}  variant="primary" type="submit">
+                        <Button className="mr-4"   variant="primary" type="submit">
                                 Envoyer
                         </Button><Button variant="warning" onClick={onReset} type="reset">
                                 Reset

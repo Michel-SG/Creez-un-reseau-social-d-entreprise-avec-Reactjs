@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Menu from './components/MenuComponent';
-import Accueil from './components/AccueilComponent';
+import Connection from './components/ConnectionComponent';
 import Admin from './components/AdminComponent';
 import ErrorPage from './components/ErrorPageComponent';
 import Forum from './components/ForumComponent';
@@ -18,7 +18,7 @@ class App extends Component {
         <Menu/>
         
         <Switch>
-          <Route exact path='/' component={Accueil}/>
+          <Route exact path='/' component={Connection}/>
           <Route path='/admin' component={Admin}/>
           <Route path='/forum' component={Forum}/>
           <Route path='/inscription' component={Inscription}/>
