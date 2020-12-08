@@ -1,21 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Card from 'react-bootstrap/Card';
 import {Button} from 'react-bootstrap';
 import {Form} from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import Context from '../Hooks/MenuMoveHooks';
 import './ConnectionComponent.css';
+
 
 function Connection() {
 
+    const [active, setActive] = useContext(Context);
+    
     const history = useHistory();
     const { register, handleSubmit } = useForm();
     const onSubmit = (data)=>{
         if(!data.email && !data.password){
             return;
-        }   
-        console.log(data.password)
+        }
+  
+        console.log(active)
         axios.post('http://localhost:3000/api/user/login',{
             email: data.email,
             password: data.password
@@ -26,6 +31,7 @@ function Connection() {
                 localStorage.setItem('userPseudo', response.data.userPseudo);
                 localStorage.setItem('userLevel', response.data.userLevel);
                 localStorage.setItem('authUserToken', response.data.token);
+                setActive(false);
                 history.push('/forum');
 
             }else{
@@ -33,12 +39,16 @@ function Connection() {
             }
         })
         .catch(error=>console.log(error));
+        
     }
+    
 
     return(
         <div className='container'>
             <h1 className="mb-4">Vueillez vous connecter</h1>
-            <p>{localStorage.getItem("errorMessage")}</p> 
+           
+            
+             
             <Card>                    
                 <Card.Body>  
                          <Form onSubmit={handleSubmit(onSubmit)}>
