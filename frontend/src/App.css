@@ -26,6 +26,13 @@
 label{
   margin:0rem auto;
 }
+.colorName{
+  color: #15DEA5;
+}
+.colorName > img{
+  background-color: #FFF;
+  border-radius: 30px;
+}
 
 
 

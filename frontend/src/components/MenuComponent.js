@@ -3,12 +3,16 @@ import { Link, NavLink } from "react-router-dom";
 import { useHistory } from 'react-router-dom';
 import Context from '../Hooks/MenuMoveHooks';
 import image from '../Images/icon-above-font.png';
+import userLogo from '../Images/personIcon.png';
 
 
 
 function Menu() {
     
     const [active, setActive] = useContext(Context);
+      if(localStorage.authUserToken){
+          setActive(false);
+      }  
     
     const history = useHistory();
     const HandleRedirectPage = ()=>{
@@ -16,9 +20,10 @@ function Menu() {
         setActive(true);
         history.push('/');
     }
+    const userPseudo = localStorage.userPseudo;
 
     return(  
-       
+        
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary p-2">
                 <Link className="navbar-brand ml-3" to="/"><img src= {image} alt="logo"/></Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,6 +43,9 @@ function Menu() {
                             <Link className="nav-link" to="/inscription"><button className="btn btn-primary">Inscription</button></Link>
                         </li>
                         </ul> : <ul className="navbar-nav ml-auto">
+                        <li className="nav-item">
+                            <Link className="nav-link" to="#"><p className="colorName"><img src= {userLogo} alt="userLogo"/>Bonjour { userPseudo }</p></Link>
+                        </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/profil"><button className="btn btn-primary">Mon profil</button></Link>
                         </li>
