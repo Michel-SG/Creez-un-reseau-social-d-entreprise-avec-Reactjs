@@ -1,0 +1,3 @@
+node_modules
+
+## normaly in production, it is important to put .env file here in order to protect the configuration parameters ##

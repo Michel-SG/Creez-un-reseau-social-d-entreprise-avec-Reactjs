@@ -15,6 +15,7 @@ const App = ()=>  {
   const [active, setActive]= useState(true);
   console.log(active)
   
+  
   return (
     <div className="App">
       <BrowserRouter>
@@ -25,7 +26,9 @@ const App = ()=>  {
           
           <Route exact path='/' component={Connection}/>
           <Route path='/admin' component={Admin}/>
+         
           <Route path='/forum' component={Forum}/>
+         
           <Route path='/inscription' component={Inscription}/>
           <Route path='/profil' component={Profil}/>
           

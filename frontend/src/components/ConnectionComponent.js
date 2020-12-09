@@ -44,11 +44,11 @@ function Connection() {
     
 
     return(
+        
         <div className='container'>
-            <h1 className="mb-4">Vueillez vous connecter</h1>
-           
-            
-             
+             { active &&
+            <h1 className="mb-4">Vueillez vous connecter</h1> }
+             { active &&
             <Card>                    
                 <Card.Body>  
                          <Form onSubmit={handleSubmit(onSubmit)}>
@@ -65,7 +65,9 @@ function Connection() {
                             </Button>
                         </Form>                  
                 </Card.Body>
-            </Card> 
+            </Card>
+            }
+             
         </div>
     )
     
