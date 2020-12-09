@@ -1,9 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function Forum() {
 
     const [active, setActive] = useState(true);
+    const [wallPosts, setWallPosts] = useState([]);
 
+
+    useEffect(()=>{
+        const HandlDisplayWall = ()=>{
+            axios.get('http://localhost:3000/api/wall/',{
+                headers: {
+                    authorization: localStorage.authUserToken
+                }
+            })
+            .then((response)=>{
+                if(response.status === 200){
+                    setWallPosts(response.data);
+                }
+            })
+            .catch(error=>console.log(error))
+        }
+        HandlDisplayWall();
+    },[])
 
     const HandleDownload = ()=>{
         setActive(false);
@@ -50,19 +69,20 @@ function Forum() {
                     <button className="btn btn-success" type="submit">Poster et voir sur le WALL !</button>
                 </form>   
             </div> }
-            
-            <article className="articlePost" >
+            { wallPosts.map((post)=>(
+            <article className="articlePost" key={post.id}>
                 <ul className="list-group">
-                    <li className="list-group-item">Titre:</li>
-                    <li className="list-group-item">Ecrit par:</li>
+                    <li className="list-group-item text-center">{post.title}</li>
+                    <li className="list-group-item text-right">Ecrit par: {post.userPseudo}</li>
                     <li className="list-group-item">
-                        <div className="post-element" >Commentaire:</div>
+                        <div className="post-element text-center" >{post.content}</div>
                     </li>
-                    <li className="list-group-item">
-                        <div className="post-element" >Image:</div>
+                    <li className="list-group-item text-center">
+                        <div className="post-element" ><img src= {post.urlImage} alt="ImageDuPost"/></div>
                     </li>
                 </ul>
-            </article> 
+            </article>
+            ))} 
         </div>
     )
     

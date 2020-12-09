@@ -33,6 +33,9 @@ label{
   background-color: #FFF;
   border-radius: 30px;
 }
+.list-group-item{
+  font-size:1.2rem;
+}
 
 
 
