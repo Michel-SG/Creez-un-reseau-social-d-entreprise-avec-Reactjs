@@ -3,11 +3,11 @@ SET time_zone = "+00:00";
 SET NAMES utf8;
 
 -- delete database of the project before create it again
-DROP DATABASE IF EXISTS `GROUPOMANIABASE`;
+-- DROP DATABASE IF EXISTS `GROUPOMANIABASE`;
 
 -- create database of the project 
-CREATE DATABASE IF NOT EXISTS `GROUPOMANIABASE`;
-USE `GROUPOMANIABASE`;
+CREATE DATABASE IF NOT EXISTS `GROUPOMANIADB`;
+USE `GROUPOMANIADB`;
 
 -- create different tables in the database
 

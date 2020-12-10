@@ -15,8 +15,8 @@ exports.getAllTheWall = (req, res, next) => {
 
 // display new post
 exports.newPost = (req, res, next) => {
-  const title =   encodeURI(req.body.title);
-  const content = encodeURI(req.body.content);
+  const title =   req.body.title;
+  const content = req.body.content;
   const userId = req.userId;
   const imageUrl = req.body.imageUrl;
   var sqlPseudo = 'SELECT pseudo FROM membre WHERE id= ?'; 
