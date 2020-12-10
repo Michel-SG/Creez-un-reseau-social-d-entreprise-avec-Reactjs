@@ -9,8 +9,8 @@ function Admin() {
             <Card>                    
                 <Card.Body>
                     <Card.Title>Les Inscrits</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">New</Card.Subtitle>
-                        <ul className="list-group">
+                    <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
+                        <ul className="list-group mb-3">
                             <li className="list-group-item">Pseudo:</li>
                             <li className="list-group-item">Email:</li>
                             <li className="list-group-item">Fonction:</li>
@@ -21,7 +21,7 @@ function Admin() {
             <Card>                    
                 <Card.Body>
                     <Card.Title>Les derniers posts</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">A lire</Card.Subtitle>
+                    <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
                         <ul className="list-group">
                             <li className="list-group-item">Titre:</li>
                             <li className="list-group-item">Message:</li>
