@@ -4,7 +4,7 @@ const mysqlConnection = require("../connectionSql");
 
 // get post to maderate
 exports.getPostToModerate = (req, res, next) => {
-  const Id = encodeURI(req.params.id);
+  const Id = req.params.id;
 
   var sql = 'SELECT * FROM wall WHERE id= ?';
   const inserts = [Id];
@@ -13,7 +13,7 @@ exports.getPostToModerate = (req, res, next) => {
       throw err;
     } else {
       const content = result[0].content //the content of the post we could moderate
-      const moderationText = encodeURI(req.body.moderation);
+      const moderationText = req.body.moderation;
 
       const newContentModerer = content +'<br/><h6>[Texte de modération : '+moderationText+' ]</h6>'; // moderate content
           
