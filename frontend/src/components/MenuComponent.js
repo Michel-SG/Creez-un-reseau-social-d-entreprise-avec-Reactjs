@@ -50,7 +50,7 @@ function Menu() {
                         </li>
                         </ul> : <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <Link className="nav-link" to="#"><p className="colorName"><img src= {userLogo} alt="userLogo"/>Bonjour { userPseudo }</p></Link>
+                            <Link className="nav-link" to="#"><p className="colorName"><img src= {userLogo} alt="userLogo"/>Salut! { userPseudo }</p></Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/profil"><button className="btn btn-primary">Mon profil</button></Link>
